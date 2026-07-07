@@ -16,7 +16,7 @@ public class SuperAdminDAO {
 	public int  save(SuperAdminDTO dto) {
 		String sql ="INSERT INTO super_admin "
                 + "(name, designation, address, employee_id, email, phone_number, password, role_id) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING super_admin_id";
 		
 		return jdbcTemplate.update(sql,
                 dto.getName(),
