@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import com.project.ProjectS.model.BranchDTO;
 import com.project.ProjectS.service.BranchService;
 
+import java.util.List;
+
 @RestController
 public class BranchController {
 
@@ -20,10 +22,10 @@ public class BranchController {
 
     // Get All Branches
     @GetMapping("/getAllBranches")
-    public Iterable<BranchDTO> getAllBranches() {
+    public List<BranchDTO> getAllBranches() {
         return branchService.getAllBranches();
     }
-
+    
     // Get Branch By Id
     @GetMapping("/getBranchById/{id}")
     public BranchDTO getBranchById(@PathVariable Long id) {

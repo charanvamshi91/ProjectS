@@ -4,6 +4,19 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import org.springframework.data.annotation.Transient;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({
+    "sectionId",
+    "courseId",
+    "courseName",
+    "branchName",
+    "collegeName",
+    "sectionName",
+    "description"
+})
+
 @Table("section")
 public class SectionDTO {
 
@@ -19,6 +32,15 @@ public class SectionDTO {
 
     @Column("description")
     private String description;
+    
+    @Transient
+    private String courseName;
+
+    @Transient
+    private String branchName;
+
+    @Transient
+    private String collegeName;
 
     public SectionDTO() {
     }
@@ -60,5 +82,29 @@ public class SectionDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public String getBranchName() {
+        return branchName;
+    }
+
+    public void setBranchName(String branchName) {
+        this.branchName = branchName;
+    }
+
+    public String getCollegeName() {
+        return collegeName;
+    }
+
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
     }
 }
