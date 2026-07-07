@@ -3,6 +3,20 @@ package com.project.ProjectS.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.annotation.Transient;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+
+
+@JsonPropertyOrder({
+    "branchId",
+    "collegeId",
+    "collegeName",
+    "branchName",
+    "address",
+    "phoneNumber",
+    "email"
+})
 
 @Table("branch")
 public class BranchDTO {
@@ -13,6 +27,9 @@ public class BranchDTO {
 
     @Column("college_id")
     private Long collegeId;
+    
+    @Transient
+    private String collegeName;
 
     @Column("branch_name")
     private String branchName;
@@ -25,6 +42,9 @@ public class BranchDTO {
 
     @Column("email")
     private String email;
+    
+   
+    
 
     public BranchDTO() {
     }
@@ -53,6 +73,14 @@ public class BranchDTO {
 
     public void setCollegeId(Long collegeId) {
         this.collegeId = collegeId;
+    }
+    
+    public String getCollegeName() {
+        return collegeName;
+    }
+
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
     }
 
     public String getBranchName() {
@@ -86,4 +114,6 @@ public class BranchDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    
 }

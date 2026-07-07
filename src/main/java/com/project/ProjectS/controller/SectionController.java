@@ -1,5 +1,7 @@
 package com.project.ProjectS.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +20,7 @@ public class SectionController {
     }
 
     @GetMapping("/getAllSections")
-    public Iterable<SectionDTO> getAllSections() {
+    public List<SectionDTO> getAllSections() {
         return sectionService.getAllSections();
     }
 
